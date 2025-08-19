@@ -22,7 +22,8 @@ document.getElementById("exportBtn").addEventListener("click", () => {
         type: "element",
         innerHTML: el.innerHTML || null,
         className: el.className || null,
-        style: el.getAttribute("style") || null
+        style: el.getAttribute("style") || null,
+        value: el.getAttribute("value") || null,
       };
     }
   });
@@ -78,6 +79,7 @@ document.getElementById("importBtn").addEventListener("click", () => {
             if (rec.className) el.className = rec.className;
             if (rec.innerHTML !== undefined) el.innerHTML = rec.innerHTML;
             if (rec.style) el.setAttribute('style', rec.style);
+            if (rec.value) el.setAttribute('value', rec.value);
             }
 
             document.getElementById("slotsmod").value = importedData["slotsmod"].value
@@ -93,6 +95,7 @@ document.getElementById("importBtn").addEventListener("click", () => {
             updateSkill && updateSkill();
             updateArmor && updateArmor();
             gerarSlots && gerarSlots();
+
 
             // 3) Gera mana cells com base no manamax atualizado
             /*const manamaxEl = document.getElementById('manamax');
@@ -203,6 +206,7 @@ document.getElementById("importBtn").addEventListener("click", () => {
             if (rec.className) el.className = rec.className;
             if (typeof rec.checked !== 'undefined' && el.type === 'checkbox') el.checked = !!rec.checked;
             }
+            console.log(document.querySelector("[saveid='equipprof4']"));
 
             console.log('Import applied successfully.');
         } catch (err) {
