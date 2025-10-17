@@ -82,6 +82,12 @@
       font-size: 14px;
       color: gray;
       margin-top: 5px;
+      -webkit-touch-callout: text; /* iOS Safari */
+        -webkit-user-select: text; /* Safari */
+         -khtml-user-select: text; /* Konqueror HTML */
+           -moz-user-select: text; /* Old versions of Firefox */
+            -ms-user-select: text; /* Internet Explorer/Edge */
+                user-select: text; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
     }
 
     /* --- Menu --- */
@@ -123,6 +129,13 @@
     margin-top: 3px;
     }
 
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    /* Firefox */
     input[type="number"] {
         -moz-appearance: textfield;
     }
@@ -177,6 +190,16 @@
       display:inline-flex;
       align-items: center;
       gap: 10px;
+      -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+         -khtml-user-select: none; /* Konqueror HTML */
+           -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+    }
+    .bonus-row#equip {
+      width: 25%;
+      max-width: 25%;
     }
 
     .main {
@@ -299,17 +322,17 @@
 
     /* Skills */
     .skills {
-      position: absolute;
+      /*position: absolute;*/
       bottom: 10px;
       left: 1%;
       display: flex;          /* em vez de inline-flex */
       flex-direction: column; /* organiza em coluna */
-      gap: 10px;              /* espaço vertical entre linhas */
-      border: 1px solid #000;
+      /*gap: 10px;              /* espaço vertical entre linhas */
+      /*border: 1px solid #000;
       border-radius: 5px;
       padding-right: 10px;
       padding-top: 20px;
-      padding-bottom: 20px;
+      padding-bottom: 20px;*/
       max-width: 33%;
       width: 33%
     }
@@ -334,7 +357,7 @@
         display: flex;
         justify-content: center;
         align-items: flex-start; /* ou center se quiser centralizar */
-        gap: 20px; /* espaçamento entre páginas na tela */
+        /*gap: 20px; /* espaçamento entre páginas na tela */
       }
     }
 
@@ -641,40 +664,40 @@
     <div class="caption" style="text-align: center;">At the start of your turn, gain energy = mastery</div>
 
     <!-- Body Stats -->
-    <div class="main">
+    <div class="main" style="padding-right: 5px; padding-left: 5px;">
         <div class="bonus-row" style="padding-right: 10px;">
           <input type="number" id="currentLife" class="atbBox" value="0" style="margin-right: -10px;width: 50%;" saveid="currentLife">
           <input type="number" id="maxLife" class="atbBox" readonly style="width: 50%;border-left: 1px dashed #000;" value="10">
         </div>
         <div style="text-align:center; font-size: 12px;margin-top: -10px;color: gray; padding-bottom: 20px;">Hit Points</div>
-        <div class="bonus-row" style="padding-right: 10px;">
+        <div class="bonus-row" style="gap: 0px">
           <img src="bordernew.fw.png" alt="Armor" style="width: 33%;">
           <img src="bordernew.fw.png" alt="Reduction" style="width: 33%;">
           <img src="bordernew.fw.png" alt="Evasion" style="width: 33%;">
         </div>
-        <div class="bonus-row" style="padding-right: 10px; margin-top: -55px;">
+        <div class="bonus-row" style="gap: 0px; margin-top: -55px;">
           <input type="number" id="armormain" style="width: 33%; background: none; border: none;" readonly value="0">
           <input type="number" id="reductionmain" style="width: 33%; background: none; border: none;" readonly value="0">
           <input type="number" id="dodgemain" style="width: 33%; background: none; border: none;" readonly value="0">
         </div>
-        <div class="bonus-row" style="padding-right: 10px; margin-top: 0px;">
+        <div class="bonus-row" style="gap: 0px; margin-top: 0px;">
           <div class="caption" style="width: 33%;text-align: center;">Armor</div>
           <div class="caption" style="width: 33%;text-align: center">Reduction</div>
           <div class="caption" style="width: 33%;text-align: center">Dodge</div>
         </div>
-        <div class="bonus-row" style="padding-right: 10px;">
+        <div class="bonus-row" style="gap: 0px;">
           <div style="width: 16.5%;"></div>
           <img src="bordernew.fw.png" alt="mastery" style="width: 33%;">
           <img src="bordernew.fw.png" alt="Speed" style="width: 33%;">
           <div style="width: 16.5%;"></div>
         </div>
-        <div class="bonus-row" style="padding-right: 10px; margin-top: -55px;">
+        <div class="bonus-row" style="gap: 0px; margin-top: -55px;">
           <div style="width: 16.5%;"></div>
           <input type="number" id="mastery" style="width: 33%; background: none; border: none;" readonly value="2" saveid="mastery">
           <input type="number" id="speedmain" style="width: 33%; background: none; border: none;" readonly value="9">
           <div style="width: 16.5%;"></div>
         </div>
-        <div class="bonus-row" style="padding-right: 10px; margin-top: 0px;">
+        <div class="bonus-row" style="gap: 0px;">
           <div style="width: 16.5%;"></div>
           <div class="caption" style="width: 33%;text-align: center;">Mastery</div>
           <div class="caption" style="width: 33%;text-align: center;">Speed</div>
@@ -683,46 +706,46 @@
     </div>
 
     <!-- Equipment -->
-    <div class="equip" style="bottom: -3%;border: 1px solid #000;border-radius: 5px;width: 97.4%;height: auto;">
-      <div style="width: 100%; height: 50%;display:flex;justify-content: center;align-items: center;gap: 10px;flex-direction:row;">
-        <div class="bonus-row">
+    <div class="equip" style="bottom: -16.5%;border: 1px solid #000;border-radius: 5px;width: 97%;height: auto;padding: 5px;">
+      <div style="width: 100%; height: 50%;display:flex;justify-content: center;align-items: center;flex-direction:row;">
+        <div id="equip" class="bonus-row">
           <div id="quadstate" class="state state-0" value=0 index=20 atb=7 saveid="equipprof1"></div>
           <input type="text" id=20 class="atbBox" readonly style="margin-left: -10px;">
           <div class="caption" style="margin-left: -5px;">Initiative [AGI]</div>
         </div>
-        <div class="bonus-row">
+        <div id="equip" class="bonus-row">
           <div id="quadstate" class="state state-0" value=0 index=21 atb=8 saveid="equipprof2"></div>
           <input type="text" id=21 class="atbBox" readonly style="margin-left: -10px;">
-          <div class="caption" style="margin-left: -5px;">Light armor [EVA]</div>
+          <div class="caption" style="margin-left: -5px;font-size: 10px">Light armor [EVA]</div>
         </div>
-        <div class="bonus-row">
+        <div id="equip" class="bonus-row">
           <div id="quadstate" class="state state-0" value=0 index=22 atb=7 saveid="equipprof3"></div>
           <input type="text" id=22 class="atbBox" readonly style="margin-left: -10px;">
-          <div class="caption" style="margin-left: -5px;">Medium armor [AGI]</div>
+          <div class="caption" style="margin-left: -5px;font-size: 10px">Medium armor [AGI]</div>
         </div>
-        <div class="bonus-row">
+        <div id="equip" class="bonus-row">
           <div id="quadstate" class="state state-0" value=0 index=23 atb=1 saveid="equipprof4"></div>
           <input type="text" id=23 class="atbBox" readonly style="margin-left: -10px;">
-          <div class="caption" style="margin-left: -5px;">Heavy armor [FOR]</div>
+          <div class="caption" style="margin-left: -5px;font-size: 10px">Heavy armor [STR]</div>
         </div>
       </div>
-      <div style="width: 100%; height: 50%;margin-top: 10px;display:flex;justify-content: center;align-items: center;gap: 10px;flex-direction:row;">
-        <div class="bonus-row">
+      <div style="width: 100%; height: 50%;margin-top: 0px;display:flex;justify-content: center;align-items: center;flex-direction:row;">
+        <div id="equip" class="bonus-row">
           <div id="quadstate" class="state state-0" value=0 index=24 atb=1 saveid="equipprof5"></div>
           <input type="text" id=24 class="atbBox" readonly style="margin-left: -10px;">
-          <div class="caption" style="margin-left: -5px;font-size: 10px">Common weapons [FOR]</div>
+          <div class="caption" style="margin-left: -5px;font-size: 10px">Common weapons [STR]</div>
         </div>
-        <div class="bonus-row">
+        <div id="equip" class="bonus-row">
           <div id="quadstate" class="state state-0" value=0 index=25 atb=3 saveid="equipprof6"></div>
           <input type="text" id=25 class="atbBox" readonly style="margin-left: -10px;">
           <div class="caption" style="margin-left: -5px;font-size: 10px">Exotic weapons [DEX]</div>
         </div>
-        <div class="bonus-row">
+        <div id="equip" class="bonus-row">
           <div id="quadstate" class="state state-0" value=0 index=26 atb=1 saveid="equipprof7"></div>
           <input type="text" id=26 class="atbBox" readonly style="margin-left: -10px;">
-          <div class="caption" style="margin-left: -5px;font-size: 10px">Improvised weapons [FOR]</div>
+          <div class="caption" style="margin-left: -5px;font-size: 10px">Improvised weapons [STR]</div>
         </div>
-        <div class="bonus-row">
+        <div id="equip" class="bonus-row">
           <div id="quadstate" class="state state-0" value=0 index=27 atb=3 saveid="equipprof8"></div>
           <input type="text" id=27 class="atbBox" readonly style="margin-left: -10px;">
           <div class="caption" style="margin-left: -5px;font-size: 10px">Precision weapons [DEX]</div>
@@ -731,7 +754,8 @@
     </div>
 
     <!-- Skills -->
-    <div class="skills" style="padding-left: 10px;border-right: none; border-radius: 5px 0px 0px 5px;">
+    <div class="skills" style="position:absolute; padding: 5px; border: 1px solid #000; border-radius: 5px; width: 97%; max-width: none; height: 228px; left: initial;align-items: center;flex-wrap: wrap;">
+    <div class="skills">
       <div class="bonus-row">
         <div id="quadstate" class="state state-0" value=0 index=0 atb=7 saveid="skillsprof01"></div>
         <input type="text" id=0 class="atbBox" readonly style="margin-left: -10px;">
@@ -768,16 +792,11 @@
         <div class="caption" style="margin-left: -5px;">Contortionism [AGI]</div>
       </div>
     </div>
-    <div class="skills" style="padding-left: 10px;margin-left: 33%; border-right: none;border-left: none; border-radius: 0px;">
+    <div class="skills">
       <div class="bonus-row">
         <div id="quadstate" class="state state-0" value=0 index=7 atb=10 saveid="skillsprof08"></div>
         <input type="text" id=7 class="atbBox" readonly style="margin-left: -10px;">
         <div class="caption" style="margin-left: -5px;">Cryptography [INT]</div>
-      </div>
-      <div class="bonus-row">
-        <div id="quadstate" class="state state-0" value=0 index=8 atb=9 saveid="skillsprof09"></div>
-        <input type="text" id=8 class="atbBox" readonly style="margin-left: -10px;">
-        <div class="caption" style="margin-left: -5px;">Medicine [WIS]</div>
       </div>
       <div class="bonus-row">
         <div id="quadstate" class="state state-0" value=0 index=9 atb=9 saveid="skillsprof10"></div>
@@ -787,7 +806,7 @@
       <div class="bonus-row">
         <div id="quadstate" class="state state-0" value=0 index=10 atb=1 saveid="skillsprof11"></div>
         <input type="text" id=10 class="atbBox" readonly style="margin-left: -10px;">
-        <div class="caption" style="margin-left: -5px;">Intimidation (Physical) [FOR]</div>
+        <div class="caption" style="margin-left: -5px;">Intimidation (Physical) [STR]</div>
       </div>
       <div class="bonus-row">
         <div id="quadstate" class="state state-0" value=0 index=11 atb=10 saveid="skillsprof12"></div>
@@ -802,10 +821,20 @@
       <div class="bonus-row">
         <div id="quadstate" class="state state-0" value=0 index=13 atb=1 saveid="skillsprof14"></div>
         <input type="text" id=13 class="atbBox" readonly style="margin-left: -10px;">
-        <div class="caption" style="margin-left: -5px;">Martial Arts [FOR]</div>
+        <div class="caption" style="margin-left: -5px;">Martial Arts [STR]</div>
+      </div>
+      <div class="bonus-row">
+        <div id="quadstate" class="state state-0" value=0 index=8 atb=9 saveid="skillsprof09"></div>
+        <input type="text" id=8 class="atbBox" readonly style="margin-left: -10px;">
+        <div class="caption" style="margin-left: -5px;">Medicine [WIS]</div>
       </div>
     </div>
-    <div class="skills" style="padding-left: 10px; width: 29%; margin-left: 66%; border-left: none; border-radius: 0px 5px 5px 0px;">
+    <div class="skills">
+      <div class="bonus-row">
+        <div id="quadstate" class="state state-0" value=0 index=28 atb=9 saveid="skillsprof21"></div>
+        <input type="text" id=28 class="atbBox" readonly style="margin-left: -10px;">
+        <div class="caption" style="margin-left: -5px;">Perception [WIS]</div>
+      </div>
       <div class="bonus-row">
         <div id="quadstate" class="state state-0" value=0 index=14 atb=7 saveid="skillsprof15"></div>
         <input type="text" id=14 class="atbBox" readonly style="margin-left: -10px;">
@@ -834,9 +863,10 @@
       <div class="bonus-row">
         <div id="quadstate" class="state state-0" value=0 index=19 atb=1 saveid="skillsprof20"></div>
         <input type="text" id=19 class="atbBox" readonly style="margin-left: -10px;">
-        <div class="caption" style="margin-left: -5px;">Workforce [FOR]</div>
+        <div class="caption" style="margin-left: -5px;">Workforce [STR]</div>
       </div>
-      <div class="bonus-row" style="padding-bottom: 33px;"></div>
+      <!--<div class="bonus-row" style="padding-bottom: 33px;"></div>-->
+    </div>
     </div>
   </div>
   
@@ -1217,7 +1247,8 @@
       <div style="margin: 10px; align-self:baseline; border: 1px solid #000;border-radius: 5px; width: 45%; height: auto;">
         <div class="caption" style="text-align: center;">Armor</div>
         <div style="display:flex;justify-content: center;align-items: center;gap: 10px;flex-direction:row;border-bottom: 1px dashed #000; padding-bottom: 15px;">
-          <label for="armorSelect">Choose armor:</label>
+          <!-- <label for="armorSelect">Choose armor:</label> -->
+          <label >Choose armor:</label>
           <select id="armorSelect" class="armor-listbox" saveid="armorSelect">
             <option value="0">Unarmored</option>
             <option value="1">Light Armor</option>
